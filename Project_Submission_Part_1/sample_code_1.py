@@ -36,12 +36,12 @@ def count_sentences_with_spacy(text):
     return sentence_count
 
 
-def num_sentences(text, sentence_counts, min_score, max_score):
+def num_sentences(text, min_score, max_score):
     num_sentences = count_sentences_with_spacy(text)
     if num_sentences <= 10:
         return min_score
     else:
-        sentence_counts = np.array(sentence_counts)
+        sentence_counts = np.array(sentence_counts_list)
         sentence_counts = sentence_counts[sentence_counts > 10]
         mean = np.mean(sentence_counts)
         stddev = np.std(sentence_counts)
@@ -83,9 +83,9 @@ def spell_check(text):
     return round(percantage, 2)
 
 
-def spelling_mistakes(text, mistakes_list, min_score, max_score):
+def spelling_mistakes(text, min_score, max_score):
     mistakes = spell_check(text)
-    mean = np.mean(mistakes_list)
-    stddev = np.std(mistakes_list)
-    score = general_scorer_gaussian_assumption(mistakes, mean, stddev, min_score, max_score)
+    mean = np.mean(spelling_mistakes_list)
+    stddev = np.std(spelling_mistakes_list)
+    score = general_scorer_gaussian_assumption(mistakes, mean, stddev, min_score, max_score, reverse=True)
     return score
