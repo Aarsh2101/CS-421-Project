@@ -23,5 +23,5 @@ def score_essay(PATH_TO_ESSAY):
 
 
 if __name__ == '__main__':
-    PATH_TO_ESSAY = 'essays_dataset/essays/essay_1.txt'
+    PATH_TO_ESSAY = 'path_to_your_essay.txt'
     print("Essay Score = ", round(score_essay(PATH_TO_ESSAY), 2))
