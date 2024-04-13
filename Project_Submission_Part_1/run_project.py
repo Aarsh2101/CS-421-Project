@@ -20,3 +20,8 @@ def score_essay(PATH_TO_ESSAY):
 
     final_score = 2*sents_score - spell_score + agree_score + verbs_score
     return final_score
+
+
+if __name__ == '__main__':
+    PATH_TO_ESSAY = 'essays_dataset/essays/essay_1.txt'
+    print("Essay Score = ", round(score_essay(PATH_TO_ESSAY), 2))
