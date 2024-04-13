@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from spell_check import *
 
 df = pd.read_csv('essays_dataset/index.csv', sep=';')
 
