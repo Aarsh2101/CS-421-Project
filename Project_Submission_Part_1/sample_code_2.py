@@ -62,7 +62,8 @@ def count_subject_verb_errors_fraction(text):
     return errors / num_tokens
 
 
-def agreement(num_disagreements, min_score, max_score):
+def agreement(text, min_score, max_score):
+    num_disagreements = count_subject_verb_errors_fraction(text)
     if num_disagreements < 2:
         return max_score
     mean = np.mean(sub_verb_disagreements_list)
