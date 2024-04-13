@@ -31,16 +31,16 @@ def spell_check(text):
     percantage = len(misspelled_words) / len(words)
     return round(percantage, 2)
 
-import json
-import pandas as pd
-df = pd.read_csv('essays_dataset/index.csv', sep=';')
-temp = []
-for filename in df['filename']:
-    with open('essays_dataset/essays/' + filename, 'r') as file:
-        text = file.read()
-        temp.append(spell_check(text))
-    # break
-# print(temp)
-# Save the list to a JSON file
-with open('spelling_mistakes.json', 'w') as f:
-    json.dump(temp, f)
+# import json
+# import pandas as pd
+# df = pd.read_csv('essays_dataset/index.csv', sep=';')
+# temp = []
+# for filename in df['filename']:
+#     with open('essays_dataset/essays/' + filename, 'r') as file:
+#         text = file.read()
+#         temp.append(spell_check(text))
+#     # break
+# # print(temp)
+# # Save the list to a JSON file
+# with open('spelling_mistakes.json', 'w') as f:
+#     json.dump(temp, f)
