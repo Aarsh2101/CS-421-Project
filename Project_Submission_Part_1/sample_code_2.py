@@ -64,8 +64,8 @@ def count_subject_verb_errors_fraction(text):
 
 def agreement(text, min_score, max_score):
     num_disagreements = count_subject_verb_errors_fraction(text)
-    if num_disagreements < 2:
-        return max_score
+    # if num_disagreements < 2:
+    #     return max_score
     mean = np.mean(sub_verb_disagreements_list)
     stddev = np.std(sub_verb_disagreements_list)
     score = general_scorer_gaussian_assumption(num_disagreements, mean, stddev, min_score, max_score, reverse=True)
