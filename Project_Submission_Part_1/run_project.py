@@ -19,9 +19,14 @@ def score_essay(PATH_TO_ESSAY):
     verbs_score = verbs(text, min_score_verbs, max_score_verbs)
 
     final_score = 2*sents_score - spell_score + agree_score + verbs_score
-    return final_score
+    return sents_score, spell_score, agree_score, verbs_score, final_score
 
 
 if __name__ == '__main__':
-    PATH_TO_ESSAY = 'path_to_your_essay.txt'
-    print("Essay Score = ", round(score_essay(PATH_TO_ESSAY), 2))
+    PATH_TO_ESSAY = 'path_to_essay.txt'
+    sents_score, spell_score, agree_score, verbs_score, final_score = score_essay(PATH_TO_ESSAY)
+    print(f"Sentence Score: {round(sents_score,2)}")
+    print(f"Spelling Score: {round(spell_score,2)}")
+    print(f"Agreement Score: {round(agree_score,2)}")
+    print(f"Verbs Score: {round(verbs_score,2)}")
+    print(f"Final Score: {round(final_score,2)}")
