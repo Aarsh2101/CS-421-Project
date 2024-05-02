@@ -9,12 +9,10 @@ nlp = spacy.load('en_core_web_sm')
 
 def tokenize_and_vectorize(inp_str):
     # Tokenize the text
-    # tokens = nltk.word_tokenize(inp_str)
     doc = nlp(inp_str)
     tokens = [token for token in doc]
 
     # Get the vector representation of each word
-    # word_vectors = [nlp(word).vector for word in tokens]
     word_vectors = [token.vector for token in tokens]
 
     return word_vectors
@@ -24,7 +22,6 @@ def tokenize_and_vectorize(inp_str):
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
     sim = 0.0
 
-    # Copy your cosine_similarity code here
     numerator = np.dot(a, b)
     denominator = np.linalg.norm(a) * np.linalg.norm(b)
     if numerator == 0:
@@ -35,7 +32,6 @@ def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def sent_embedding(user_input):
-    # Write your code here:
     vectors = tokenize_and_vectorize(user_input)
     embedding = np.zeros(len(vectors[0]), )
     for vector in vectors:
